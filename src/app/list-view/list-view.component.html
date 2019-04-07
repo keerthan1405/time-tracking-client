@@ -1,0 +1,60 @@
+<div class="input-group date" data-provide="datepicker">
+  <label for="from">From date:</label>
+  <input type="date" [(ngModel)]="date1">
+</div>
+<div class="input-group date" data-provide="datepicker">
+  <label for="to">To date:</label>
+  <input type="date" [(ngModel)]="date2">
+</div>
+<button class="btn btn-secondary" (click)="getTimerData()">Go</button>
+
+<div class="search-box">
+  <input type="text" placeholder="Search.." [(ngModel)]="searchData">
+  <button class="btn btn-secondary" (click)="getSearchdata()"><i class="fa fa-search"></i>Search</button>
+</div> 
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">S.No</th>
+        <th scope="col">Timer</th>
+        <th scope="col">Description</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; let i = index;">
+        <td scope="row">{{i+1}}</td>
+        <td>{{item?.timer}}</td>
+        <td>{{item?.description}}</td>
+        <td class="btn-userm">
+          <button (click)="deleteTimer(item.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <div *ngIf="getSearchDataContent">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">S.No</th>
+        <th scope="col">Timer</th>
+        <th scope="col">Description</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of searchItems; let i = index;">
+        <td scope="row">{{i+1}}</td>
+        <td>{{item?.timer}}</td>
+        <td>{{item?.description}}</td>
+        <td class="btn-userm">
+          <button (click)="deleteTimer(item.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

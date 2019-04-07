@@ -1,0 +1,30 @@
+<!-- <a [routerLink]="['/listview']" class="btn btn-link">List View</a> -->
+<button (click)="timerList()">List View</button>
+<button (click)="timerGraph()">Graph</button>
+
+<h1 *ngIf="!showTime"><time>00:00:00</time></h1>
+<h1 *ngIf="showTime"><time>{{showTime}}</time></h1>
+<button id="start" (click)="timer()">start</button>
+<button id="stop" (click)="stopTimer()">stop</button>
+<button id="clear" (click)="clearTimer()">clear</button>
+
+<form [formGroup]="timerForm" *ngIf="isForm">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="timer">Timer</label>
+                <input type="text" formControlName="timer" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.timer.errors }" />
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" cols="70" rows="1" formControlName="description"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <button  [disabled]="timerForm.invalid" class="btn btn-primary mx-auto" (click)="submitTimeForm()">Save</button>
+        </div>
+    </div>
+</form>
