@@ -12,7 +12,7 @@ start timer and stop. Save the time and description.
 
 View time and description in "list view".
 
-You can search with time frame and also with keyword in description.
+You can search with date frame(date range) and also search with a keyword in description.
 
 Graphs are not implemented.
 
